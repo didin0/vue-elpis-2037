@@ -1,25 +1,43 @@
 <template>
-<div>
-  <video autoplay loop muted>
-    <source src="public/bande-annonce.mp4" type="video/mp4">
-  </video>
-</div>
+  <div class="banner">
+    <video autoplay loop muted>
+      <source src="../public/bande-annonce.mp4" type="video/mp4">
+    </video>
+  </div>
 </template>
 
 <script>
 
 export default {
-  name: 'App',
+  name: 'App'
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: 0;
+  padding: 0;
 }
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: url('../public/cursor.png'), auto;
+
+}
+
+.banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
 </style>
