@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <video autoplay loop muted preload="auto">
+    <video autoplay loop muted preload="auto" controls>
       <source src="../public/bande-annonce.mp4" type="video/mp4">
     </video>
   </div>
