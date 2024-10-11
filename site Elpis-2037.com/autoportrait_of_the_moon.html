@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="img/favicon.ico">
+    <title>Elpis2037</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Empêche le défilement */
+            font-family: 'Press Start 2P', cursive; /* Police pour un style rétro */
+        }
+
+        #selector {
+            position: absolute; /* Positionne l'image de fond */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Prend toute la largeur de la fenêtre */
+            height: 100vh; /* Prend toute la hauteur de la fenêtre */
+            object-fit: cover; /* S'assure que l'image remplit l'espace */
+            z-index: -1; /* Met l'image derrière le GIF */
+        }
+
+        .gif {
+            position: absolute; /* Positionne le GIF */
+            top: 50%; /* Centre verticalement */
+            left: 50%; /* Centre horizontalement */
+            transform: translate(-50%, -50%); /* Ajuste pour centrer exactement */
+            z-index: 1; /* Met le GIF au-dessus de l'image de fond */
+            width: 500px; /* Ajuste la taille du GIF selon tes besoins */
+            height: auto; /* Maintient le ratio d'aspect */
+            cursor: pointer; /* Change le curseur en pointeur pour indiquer que c'est cliquable */
+            opacity: 0; /* Commence avec une transparence */
+            transition: opacity 5s ease; /* Transition pour l'opacité */
+        }
+
+        #video-container {
+            display: none; /* Cache le conteneur vidéo par défaut */
+            position: absolute; /* Positionne le conteneur vidéo */
+            top: 50%; /* Centre verticalement */
+            left: 50%; /* Centre horizontalement */
+            transform: translate(-50%, -50%); /* Ajuste pour centrer exactement */
+            z-index: 2; /* Met le conteneur vidéo au-dessus du GIF */
+        }
+
+        video {
+            width: 80%; /* Ajuste la largeur de la vidéo */
+            height: auto; /* Maintient le ratio d'aspect */
+        }
+
+        /* Style pour la boîte modale */
+        .password-modal, .error-modal {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #000;
+            color: rgb(184, 14, 14); /* Couleur cyan pour un effet rétro */
+            border: 2px solid rgb(184, 14, 14);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            z-index: 3;
+            box-shadow: 0 0 10px rgb(184, 14, 14), 0 0 20px rgb(244, 99, 9);
+        }
+
+        .password-modal input {
+            background: #222;
+            color: rgb(184, 14, 14);
+            border: 2px solid rgb(184, 14, 14);
+            padding: 5px;
+            width: 80%;
+            text-align: center;
+            font-family: inherit;
+            margin-bottom: 10px;
+        }
+
+        .password-modal button, .error-modal button {
+            background: rgb(184, 14, 14);
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .password-modal button:hover, .error-modal button:hover {
+            background: rgb(240, 186, 9);
+        }
+    </style>
+</head>
+<body>
+    <img src='img/1_HH_ERG2024-PERFORMANCE-42.jpg' id='selector'/>
+    
+    <!-- GIF cliquable -->
+    <img src='img/dvd.gif' class='gif' alt='Mon GIF' onclick="showPasswordModal()" id="animated-gif"/>
+
+    <!-- Boîte modale pour le mot de passe -->
+    <div class="password-modal" id="password-modal">
+        <p>Enter the password:</p>
+        <input type="password" id="password-input">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <!-- Boîte modale pour le message d'erreur -->
+    <div class="error-modal" id="error-modal">
+        <p>Incorrect password!</p>
+        <button onclick="closeErrorModal()">Try Again</button>
+    </div>
+
+    <!-- Conteneur de la vidéo -->
+    <div id="video-container">
+        <iframe src="https://player.vimeo.com/video/677805108?autoplay=1&loop=1&muted=1" 
+                width="640" 
+                height="360" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+    
+
+    <script>
+        function showPasswordModal() {
+            document.getElementById("password-modal").style.display = "block";
+        }
+
+        function checkPassword() {
+            const password = document.getElementById("password-input").value;
+            if (password === "autoportrait of the moon") {
+                document.getElementById("password-modal").style.display = "none";
+                document.getElementById("video-container").style.display = "block";
+            } else {
+                document.getElementById("password-modal").style.display = "none";
+                document.getElementById("error-modal").style.display = "block";
+            }
+        }
+
+        function closeErrorModal() {
+            document.getElementById("error-modal").style.display = "none";
+            document.getElementById("password-modal").style.display = "block";
+        }
+
+        // Animation lors du chargement de la page
+        window.onload = function() {
+            const gif = document.getElementById('animated-gif');
+            gif.style.opacity = '1'; // Rendre le GIF opaque
+            
+            // Commencer le mouvement après 4 secondes (durée de la transition d'opacité)
+            setTimeout(() => {
+                gif.style.transform = 'translate(100px, -50%) scale(0.3)'; // Réduit la taille et se déplace vers la droite
+                gif.style.transition = 'transform 2s ease'; // Transition pour le mouvement
+            }, 4000); // 4000 ms pour correspondre à la durée de l'opacité
+        };
+    </script>
+</body>
+</html>
