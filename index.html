@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="icon" href="img/favicon.ico">
+        <title>Elpis2037</title>
+        <link href="/css/app.155a83ce.css" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden; /* Empêche le défilement */
+            }
+
+            #selector {
+                position: absolute; /* Positionne le GIF */
+                top: 0;
+                left: 0;
+                width: 100vw; /* Prend toute la largeur de la fenêtre */
+                height: 100vh; /* Prend toute la hauteur de la fenêtre */
+                object-fit: cover; /* S'assure que le GIF remplit l'espace */
+                z-index: -1; /* Met le GIF derrière le contenu */
+            }
+
+            .clickable-image {
+                position: absolute; /* Positionne l'image cliquable */
+                top: 100px; /* Ajuste la distance du haut */
+                right: 150px; /* Ajuste la distance de la droite */
+                z-index: 1; /* Met l'image au-dessus du GIF */
+            }
+
+            .clickable-image img {
+                width: 200px; /* Ajuste la largeur de l'image */
+                height: auto; /* Maintient le ratio d'aspect */
+            }
+        </style>
+    </head>
+    <body>
+        <img src='img/bande-annonce.1b647250.gif' id='selector'/>
+        
+        <!-- Lien avec une image cliquable -->
+        <a href="autoportrait_of_the_moon.html" class="clickable-image">
+            <img src="img/autoportrait de lune.png" alt="Cliquez ici" />
+        </a>
+    </body>
+</html>
