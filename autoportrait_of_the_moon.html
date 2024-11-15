@@ -12,17 +12,22 @@
             padding: 0;
             overflow: hidden; /* Empêche le défilement */
             font-family: 'Press Start 2P', cursive; /* Police pour un style rétro */
+            background-color: #11050f;
         }
 
         #selector {
-            position: absolute; /* Positionne l'image de fond */
-            top: 0;
-            left: 0;
-            width: 100vw; /* Prend toute la largeur de la fenêtre */
-            height: 100vh; /* Prend toute la hauteur de la fenêtre */
-            object-fit: cover; /* S'assure que l'image remplit l'espace */
-            z-index: -1; /* Met l'image derrière le GIF */
+            position: fixed; /* Fixe l'image par rapport à la fenêtre */
+            top: 0; /* Colle l'image au haut de la page */
+            left: 15%; /* Décale l'image de 5% vers la droite depuis le bord gauche */
+            width: 40vw; /* Ajuste la largeur à 30% de la largeur de l'écran */
+            height: auto; /* Maintient les proportions de l'image */
+            object-fit: contain; /* S'assure que l'image garde ses proportions */
+            z-index: -1; /* Place l'image en arrière-plan */
         }
+
+
+
+
 
         .gif {
             position: absolute; /* Positionne le GIF */
@@ -91,11 +96,102 @@
         .password-modal button:hover, .error-modal button:hover {
             background: rgb(240, 186, 9);
         }
+
+/* Slider 14 images  */
+.slider-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0); /* Transparent par défaut */
+    padding-bottom: 3.6%;
+    opacity: 0.6; /* Transparence par défaut */
+    transition: opacity 0.5s ease; /* Transition pour le changement d'opacité */
+}
+
+.slider-container:hover {
+    opacity: 1; /* Opaque au survol */
+}
+
+
+.slider {
+    display: flex;
+    width: max-content; /* Ajuste automatiquement en fonction du contenu */
+    animation: scroll 20s linear infinite; /* Animation continue et infinie */
+}
+
+.slider img {
+    width: 200px; /* Largeur de chaque image */
+    height: auto; /* Maintien du ratio d'aspect */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-2800px); /* Déplacement total : largeur de 14 images */
+    }
+}
+
+/* Pour éviter le flash des images lors de la boucle, doublez la séquence */
+.slider {
+    display: flex;
+    animation: scroll 28s linear infinite;
+}
+/* Credits  */
+.bottom-slider-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden; /* Cache tout ce qui dépasse le conteneur */
+    background: rgba(0, 0, 0, 0); /* Optionnel : couleur de fond */
+    padding-bottom: 1%; /* Ajustez la marge en bas si nécessaire */
+}
+
+.bottom-slider {
+    display: flex;
+    width: calc(2 * 100%); /* Largeur totale basée sur le nombre d'images */
+    animation: scroll-bottom 28s linear infinite; /* Animation continue et infinie */
+}
+
+.bottom-slider img {
+    width: 100%; /* L'image occupe toute la largeur */
+    height: auto; /* Maintient le ratio d'aspect */
+}
+
+@keyframes scroll-bottom {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); /* Déplace d'une largeur complète */
+    }
+}
+/* titre */
+.top-right-image {
+    position: fixed; /* Positionne l'image par rapport à la fenêtre */
+    top: 10%; /* Décalage par rapport au haut */
+    right: 15%; /* Décalage par rapport à la droite */
+    width: 19%; /* Ajustez la taille selon vos besoins */
+    height: auto; /* Maintient les proportions de l'image */
+    z-index: 1000; /* Assure que l'image est au-dessus des autres éléments */
+    cursor: pointer; /* Change le curseur pour indiquer que l'image est cliquable (optionnel) */
+    transition: transform 0.3s ease; /* Ajoute une animation lors du survol */
+}
+
     </style>
 </head>
 <body>
-    <img src='img/1_HH_ERG2024-PERFORMANCE-42.jpg' id='selector'/>
+    <!-- Background -->
+    <img src='img/personnage.png' id='selector'/>
     
+    <!-- titre -->
+    <img src="img/titre.png" alt="Top Right Image" class="top-right-image">
+
+
     <!-- GIF cliquable -->
     <img src='img/dvd.gif' class='gif' alt='Mon GIF' onclick="showPasswordModal()" id="animated-gif"/>
 
@@ -120,6 +216,48 @@
                 frameborder="0" 
                 allow="autoplay; fullscreen; picture-in-picture" 
                 allowfullscreen></iframe>
+    </div>
+    <!-- Slider -->
+    <div class="slider-container">
+        <div class="slider">
+            <img src="img/slide/1.jpg" alt="Image 1">
+            <img src="img/slide/2.jpg" alt="Image 2">
+            <img src="img/slide/3.jpg" alt="Image 3">
+            <img src="img/slide/4.jpg" alt="Image 3">
+            <img src="img/slide/5.jpg" alt="Image 3">
+            <img src="img/slide/6.jpg" alt="Image 3">
+            <img src="img/slide/7.jpg" alt="Image 3">
+            <img src="img/slide/8.jpg" alt="Image 3">
+            <img src="img/slide/9.jpg" alt="Image 3">
+            <img src="img/slide/10.jpg" alt="Image 3">
+            <img src="img/slide/11.jpg" alt="Image 3">
+            <img src="img/slide/12.jpg" alt="Image 3">
+            <img src="img/slide/13.jpg" alt="Image 3">
+            <img src="img/slide/14.jpg" alt="Image 14">
+            <!-- Doublons pour la fluidité -->
+            <img src="img/slide/1.jpg" alt="Image 1">
+            <img src="img/slide/2.jpg" alt="Image 2">
+            <img src="img/slide/3.jpg" alt="Image 3">
+            <img src="img/slide/4.jpg" alt="Image 3">
+            <img src="img/slide/5.jpg" alt="Image 3">
+            <img src="img/slide/6.jpg" alt="Image 3">
+            <img src="img/slide/7.jpg" alt="Image 3">
+            <img src="img/slide/8.jpg" alt="Image 3">
+            <img src="img/slide/9.jpg" alt="Image 3">
+            <img src="img/slide/10.jpg" alt="Image 3">
+            <img src="img/slide/11.jpg" alt="Image 3">
+            <img src="img/slide/12.jpg" alt="Image 3">
+            <img src="img/slide/13.jpg" alt="Image 3">
+            <img src="img/slide/14.jpg" alt="Image 14">
+        </div>
+    </div>
+
+    <!-- Image en dessous du slider -->
+    <div class="bottom-slider-container">
+        <div class="bottom-slider">
+            <img src="img/credit_slide.png" alt="credits">
+            <img src="img/credit_slide.png" alt="credits"> <!-- Ajout d'un doublon pour une animation fluide -->
+        </div>
     </div>
     
 
