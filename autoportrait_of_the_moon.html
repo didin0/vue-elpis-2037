@@ -1,260 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="img/favicon.ico">
+    <link rel="icon" href="img/mouse.png">
+    <link rel="stylesheet" href="style.css">
     <title>Elpis2037</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            /* Empêche le défilement */
-            font-family: 'Press Start 2P', cursive;
-            /* Police pour un style rétro */
-            background-color: #11050f;
-        }
-
-        #selector {
-            position: fixed;
-            /* Fixe l'image par rapport à la fenêtre */
-            top: 0;
-            /* Colle l'image au haut de la page */
-            left: 15%;
-            /* Décale l'image de 5% vers la droite depuis le bord gauche */
-            width: 40vw;
-            /* Ajuste la largeur à 30% de la largeur de l'écran */
-            height: auto;
-            /* Maintient les proportions de l'image */
-            object-fit: contain;
-            /* S'assure que l'image garde ses proportions */
-            z-index: -1;
-            /* Place l'image en arrière-plan */
-        }
-
-
-
-
-
-        .gif {
-            position: absolute;
-            /* Positionne le GIF */
-            top: 50%;
-            /* Centre verticalement */
-            left: 50%;
-            /* Centre horizontalement */
-            transform: translate(-50%, -50%);
-            /* Ajuste pour centrer exactement */
-            z-index: 2;
-            /* Met le GIF au-dessus de l'image de fond */
-            width: 500px;
-            /* Ajuste la taille du GIF selon tes besoins */
-            height: auto;
-            /* Maintient le ratio d'aspect */
-            cursor: pointer;
-            /* Change le curseur en pointeur pour indiquer que c'est cliquable */
-            opacity: 0;
-            /* Commence avec une transparence */
-            transition: opacity 5s ease;
-            /* Transition pour l'opacité */
-        }
-
-        #video-container {
-            display: none;
-            /* Cache le conteneur vidéo par défaut */
-            position: absolute;
-            /* Positionne le conteneur vidéo */
-            top: 50%;
-            /* Centre verticalement */
-            left: 50%;
-            /* Centre horizontalement */
-            transform: translate(-50%, -50%);
-            /* Ajuste pour centrer exactement */
-            z-index: 10;
-            /* Met le conteneur vidéo au-dessus du GIF */
-        }
-
-        video {
-            width: 80%;
-            /* Ajuste la largeur de la vidéo */
-            height: auto;
-            /* Maintient le ratio d'aspect */
-        }
-
-        /* Style pour la boîte modale */
-        .password-modal,
-        .error-modal {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #000;
-            color: rgb(184, 14, 14);
-            /* Couleur cyan pour un effet rétro */
-            border: 2px solid rgb(184, 14, 14);
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-            z-index: 3;
-            box-shadow: 0 0 10px rgb(184, 14, 14), 0 0 20px rgb(244, 99, 9);
-        }
-
-        .password-modal input {
-            background: #222;
-            color: rgb(184, 14, 14);
-            border: 2px solid rgb(184, 14, 14);
-            padding: 5px;
-            width: 80%;
-            text-align: center;
-            font-family: inherit;
-            margin-bottom: 10px;
-        }
-
-        .password-modal button,
-        .error-modal button {
-            background: rgb(184, 14, 14);
-            color: #000;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-
-        .password-modal button:hover,
-        .error-modal button:hover {
-            background: rgb(240, 186, 9);
-        }
-
-        /* Slider 14 images  */
-        .slider-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0);
-            /* Transparent par défaut */
-            padding-bottom: 3.6%;
-            opacity: 0.6;
-            /* Transparence par défaut */
-            transition: opacity 0.5s ease;
-            /* Transition pour le changement d'opacité */
-        }
-
-        .slider-container:hover {
-            opacity: 1;
-            /* Opaque au survol */
-        }
-
-
-        .slider {
-            display: flex;
-            width: max-content;
-            /* Ajuste automatiquement en fonction du contenu */
-            animation: scroll 20s linear infinite;
-            /* Animation continue et infinie */
-        }
-
-        .slider img {
-            width: 200px;
-            /* Largeur de chaque image */
-            height: auto;
-            /* Maintien du ratio d'aspect */
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-2800px);
-                /* Déplacement total : largeur de 14 images */
-            }
-        }
-
-        /* Pour éviter le flash des images lors de la boucle, doublez la séquence */
-        .slider {
-            display: flex;
-            animation: scroll 28s linear infinite;
-        }
-
-        /* Credits  */
-        .bottom-slider-container {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            /* Cache tout ce qui dépasse le conteneur */
-            background: rgba(0, 0, 0, 0);
-            /* Optionnel : couleur de fond */
-            padding-bottom: 1%;
-            /* Ajustez la marge en bas si nécessaire */
-        }
-
-        .bottom-slider {
-            display: flex;
-            width: calc(2 * 100%);
-            /* Largeur totale basée sur le nombre d'images */
-            animation: scroll-bottom 28s linear infinite;
-            /* Animation continue et infinie */
-        }
-
-        .bottom-slider img {
-            width: 100%;
-            /* L'image occupe toute la largeur */
-            height: auto;
-            /* Maintient le ratio d'aspect */
-        }
-
-        @keyframes scroll-bottom {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-100%);
-                /* Déplace d'une largeur complète */
-            }
-        }
-
-        /* titre */
-        .top-right-image {
-            position: fixed;
-            /* Positionne l'image par rapport à la fenêtre */
-            top: 10%;
-            /* Décalage par rapport au haut */
-            right: 15%;
-            /* Décalage par rapport à la droite */
-            width: 19%;
-            /* Ajustez la taille selon vos besoins */
-            height: auto;
-            /* Maintient les proportions de l'image */
-            z-index: 3;
-            /* Assure que l'image est au-dessus des autres éléments */
-        }
-    </style>
 </head>
-
 <body>
+    <!-- Écran de chargement -->
+    <div id="fullscreen-image-container">
+        <img src="img/introduction.jpg" alt="Fullscreen Image" id="fullscreen-image">
+    </div>
+    
     <!-- Background -->
-    <img src='img/personnage.png' id='selector' />
-
+    <img src='img/personnage.png' id='selector'/>
+    
     <!-- titre -->
-    <img src="img/titre.png" alt="Top Right Image" class="top-right-image">
+    <img src="img/haolin2.gif" alt="titre" class="top-right-image">
+    <!-- SVG Filter pour l'effet de vague -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:block;">
+            <filter id="wave-effect">
+                <feTurbulence type="turbulence" baseFrequency="0.0547184" id="turbulence" numOctaves="10" result="turbulence" seed="5">
+                <animate id="noiseAnimate" attributeName="baseFrequency" values="0;.1;0,0" from="50" to="20" dur="0s" repeatCount="indefinite"></animate>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="30" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+            </filter>
+    </svg>
 
 
     <!-- GIF cliquable -->
-    <img src='img/dvd.gif' class='gif' alt='Mon GIF' onclick="showPasswordModal()" id="animated-gif" />
-
+    <img src='img/ezgif.com-animated-gif-maker.gif' class='gif' alt='Mon GIF' onclick="showPasswordModal()" id="animated-gif"/>
+  
+    <div class="gif-container">
+        <img src='img/ezgif.com-animated-gif-maker.gif' class='gif' alt='Mon GIF' onclick="showPasswordModal()" id="animated-gif"/>
+        <div class="shiny-effect"></div>
+    </div>
+    
     <!-- Boîte modale pour le mot de passe -->
     <div class="password-modal" id="password-modal">
-        <p>Enter the password:</p>
+        <p style="font-family: 'Garamond Premier Pro'; font-weight: Medium; font-size: 18px;">Password:</p>
         <input type="password" id="password-input">
         <button onclick="checkPassword()">Submit</button>
     </div>
@@ -267,8 +53,12 @@
 
     <!-- Conteneur de la vidéo -->
     <div id="video-container">
-        <iframe src="https://player.vimeo.com/video/677805108" width="640" height="360" frameborder="0"
-            allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/677805108?autoplay=1&loop=1&muted=1" 
+                width="640" 
+                height="360" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                allowfullscreen></iframe>
     </div>
     <!-- Slider -->
     <div class="slider-container">
@@ -310,14 +100,29 @@
         <div class="bottom-slider">
             <img src="img/credit_slide.png" alt="credits">
             <img src="img/credit_slide.png" alt="credits"> <!-- Ajout d'un doublon pour une animation fluide -->
-            <img src="img/credit_slide.png" alt="credits"> <!-- Ajout d'un doublon pour une animation fluide -->
-            <img src="img/credit_slide.png" alt="credits"> <!-- Ajout d'un doublon pour une animation fluide -->
-            <img src="img/credit_slide.png" alt="credits"> <!-- Ajout d'un doublon pour une animation fluide -->
         </div>
     </div>
+    
+    <!-- Introduction animation -->
+    <script>
+        window.onload = function () {
+            const fullscreenContainer = document.getElementById('fullscreen-image-container');
+    
+            // Lancer l'animation de transparence après un délai
+            setTimeout(() => {
+                fullscreenContainer.style.opacity = '0'; // Diminuer l'opacité
+            }, 4000); // Délai avant de commencer l'animation (2 secondes)
+    
+            // Masquer le conteneur après la fin de l'animation
+            fullscreenContainer.addEventListener('transitionend', () => {
+                fullscreenContainer.style.display = 'none'; // Masquer le conteneur
+            });
+        };
+    </script>
+    
+    
 
-
-
+    <!-- Interface password -->
     <script>
         function showPasswordModal() {
             document.getElementById("password-modal").style.display = "block";
@@ -325,7 +130,7 @@
 
         function checkPassword() {
             const password = document.getElementById("password-input").value;
-            if (password === "autoportrait of the moon") {
+            if (password === "haolin") {
                 document.getElementById("password-modal").style.display = "none";
                 document.getElementById("video-container").style.display = "block";
             } else {
@@ -340,17 +145,47 @@
         }
 
         // Animation lors du chargement de la page
-        window.onload = function () {
+        /* window.onload = function() {
             const gif = document.getElementById('animated-gif');
             gif.style.opacity = '1'; // Rendre le GIF opaque
-
+            
             // Commencer le mouvement après 4 secondes (durée de la transition d'opacité)
             setTimeout(() => {
-                gif.style.transform = 'translate(100px, -50%) scale(0.3)'; // Réduit la taille et se déplace vers la droite
+                gif.style.transform = 'translate(4%, -50%) scale(0.5)'; // Réduit la taille et se déplace vers la droite
                 gif.style.transition = 'transform 2s ease'; // Transition pour le mouvement
             }, 4000); // 4000 ms pour correspondre à la durée de l'opacité
-        };
+        }; */
     </script>
-</body>
 
+    <!--  
+    <script>
+        window.onload = function () {
+            // Fonction pour ajuster la vitesse des sliders
+            function updateScrollSpeed() {
+                const slider = document.querySelector('.slider');
+                const bottomSlider = document.querySelector('.bottom-slider');
+
+                // Largeur totale des sliders
+                const sliderWidth = slider.scrollWidth;
+                const bottomSliderWidth = bottomSlider.scrollWidth;
+
+                // Vitesse constante (exemple : 100 pixels/seconde)
+                const speed = 100;
+
+                // Calcul de la durée (en secondes)
+                const sliderDuration = sliderWidth / speed;
+                const bottomSliderDuration = bottomSliderWidth / speed;
+
+                // Met à jour UNIQUEMENT la variable CSS des sliders
+                document.documentElement.style.setProperty('--scroll-duration', `${sliderDuration}s`);
+            }
+
+            // Appel initial
+            updateScrollSpeed();
+
+            // Réajustement lors du redimensionnement de la fenêtre
+            window.addEventListener('resize', updateScrollSpeed);
+        };
+    </script>-->
+</body>
 </html>

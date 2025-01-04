@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Garamond Premier Pro';
+    src: url('fonts/GaramondPremrPro-Bd.eot');
+    src: url('fonts/GaramondPremrPro-Bd.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GaramondPremrPro-Bd.woff2') format('woff2'),
+         url('fonts/GaramondPremrPro-Bd.woff') format('woff'),
+         url('fonts/GaramondPremrPro-Bd.ttf')  format('truetype'),
+         url('fonts/GaramondPremrPro-Bd.svg#Garamond Premier Pro') format('svg');
+}
