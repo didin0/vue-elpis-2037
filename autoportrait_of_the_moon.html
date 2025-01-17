@@ -30,25 +30,26 @@
     </svg>
 
 
-    <!-- GIF cliquable -->
-    <img src='img/ezgif.com-animated-gif-maker.gif' class='gif' alt='Mon GIF' onclick="showPasswordModal()" id="animated-gif"/>
-  
+    <!-- GIF cliquable -->  
     <div class="gif-container">
         <img src='img/ezgif.com-animated-gif-maker.gif' class='gif' alt='Mon GIF' onclick="showPasswordModal()" id="animated-gif"/>
         <div class="shiny-effect"></div>
     </div>
     
     <!-- Boîte modale pour le mot de passe -->
-    <div class="password-modal" id="password-modal">
-        <p style="font-family: 'Garamond Premier Pro'; font-weight: Medium; font-size: 18px;">Password:</p>
-        <input type="password" id="password-input">
-        <button onclick="checkPassword()">Submit</button>
+    <div class="custom-modal" id="password-modal" style="display: none;">
+        <div class="modal-content">
+            <p class="modal-text">Password</p>
+            <input type="password" id="password-input">
+            <button onclick="checkPassword()">Submit</button>
+        </div>
     </div>
 
-    <!-- Boîte modale pour le message d'erreur -->
-    <div class="error-modal" id="error-modal">
-        <p>Incorrect password!</p>
-        <button onclick="closeErrorModal()">Try Again</button>
+    <!-- Boîte modale pour l'erreur -->
+    <div class="custom-modal" id="error-modal" style="display: none;">
+        <div class="modal-content">
+            <button onclick="closeErrorModal()">Try Again</button>
+        </div>
     </div>
 
     <!-- Conteneur de la vidéo -->
@@ -98,8 +99,8 @@
     <!-- Image en dessous du slider -->
     <div class="bottom-slider-container">
         <div class="bottom-slider">
-            <img src="img/credit_slide.png" alt="credits">
-            <img src="img/credit_slide.png" alt="credits"> <!-- Ajout d'un doublon pour une animation fluide -->
+            <img src="img/credit.png" alt="credits">
+            <img src="img/credit.png" alt="credits"> <!-- Ajout d'un doublon pour une animation fluide -->
         </div>
     </div>
     
@@ -125,9 +126,9 @@
     <!-- Interface password -->
     <script>
         function showPasswordModal() {
-            document.getElementById("password-modal").style.display = "block";
+            const modal = document.getElementById("password-modal");
+            modal.style.display = "flex"; // Flexbox garantit le centrage.
         }
-
         function checkPassword() {
             const password = document.getElementById("password-input").value;
             if (password === "haolin") {
@@ -135,26 +136,14 @@
                 document.getElementById("video-container").style.display = "block";
             } else {
                 document.getElementById("password-modal").style.display = "none";
-                document.getElementById("error-modal").style.display = "block";
+                document.getElementById("error-modal").style.display = "flex"; // Centrage pour l'erreur.
             }
         }
 
         function closeErrorModal() {
             document.getElementById("error-modal").style.display = "none";
-            document.getElementById("password-modal").style.display = "block";
+            document.getElementById("password-modal").style.display = "flex"; // Centrage restauré.
         }
-
-        // Animation lors du chargement de la page
-        window.onload = function() {
-            const gif = document.getElementById('animated-gif');
-            gif.style.opacity = '1'; // Rendre le GIF opaque
-            
-            // Commencer le mouvement après 4 secondes (durée de la transition d'opacité)
-            setTimeout(() => {
-                gif.style.transform = 'translate(4%, -50%) scale(0.5)'; // Réduit la taille et se déplace vers la droite
-                gif.style.transition = 'transform 2s ease'; // Transition pour le mouvement
-            }, 4000); // 4000 ms pour correspondre à la durée de l'opacité
-        };
     </script>
 
     <!--  
@@ -185,8 +174,6 @@
 
             // Réajustement lors du redimensionnement de la fenêtre
             window.addEventListener('resize', updateScrollSpeed);
-
-
         };
     </script>-->
 </body>

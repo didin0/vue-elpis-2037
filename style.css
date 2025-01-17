@@ -38,8 +38,6 @@ body {
     max-height: 100%;
 }
 
-
-
 #selector {
     position: fixed; /* Fixe l'image par rapport à la fenêtre */
     top: 0; /* Colle l'image au haut de la page */
@@ -78,55 +76,101 @@ video {
     height: auto; /* Maintient le ratio d'aspect */
 }
 
-
-/* Style pour la boîte modale */
-.password-modal, .error-modal {
-    display: none;
-    position: absolute;
-    top: 50%;
+/* Styles de la boîte modale */
+.custom-modal {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #00000000;
-    color: #bc8f4d;
-    border: 2px solid rgba(184, 14, 14, 0);
-    padding: 5px;
-    width: 300px;
-    text-align: center;
-    z-index: 3;
-    box-shadow: 0 0 10px #bc8f4d, 0 0 20px rgb(184, 14, 14);
+    width: 500px;
+    height: 500px;
+    background: url('img/star.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1000;
+    display: flex; /* Flexbox pour le centrage */
+    justify-content: center;
+    align-items: center;
 }
 
-.password-modal input {
-    background: #22222200;
-    color: #bc8f4d;
-    border: 2px solid rgba(184, 14, 14, 0);
-    padding: 5px;
-    width: 80%;
-    text-align: center;
-    font-family: inherit;
-    margin-bottom: 10px;
-    box-shadow: 0 0 10px #bc8f4d, 0 0 20px rgb(184, 14, 14);
+/* Contenu de la boîte modale */
+.modal-content {
+    text-align: center; /* Centre le texte et les champs */
+    color: white; /* Couleur du texte */
 }
 
-.password-modal input:focus {
-    outline: none; /* Retire le contour (bordure bleue par défaut) */
-    border: 2px solid rgba(184, 14, 14, 0); /* Optionnel: rétablir la couleur de bordure personnalisée */
-}
-
-.password-modal button, .error-modal button {
-    background: rgba(184, 14, 14, 0);
-    color: #bc8f4d;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-family: inherit;
-    box-shadow: 0 0 10px #bc904d00, 0 0 20px rgba(184, 14, 14, 0);
+/* Texte dans la boîte modale */
+.modal-text {
     font-family: 'Garamond Premier Pro'; font-weight: Medium; font-size: 22px;
+    margin-bottom: 10px; /* Espacement sous le texte */
+    margin-top: 50px;
+    color: rgba(62, 65, 59, 0.583);
+    text-shadow: 1px 1px 2px rgb(242, 255, 192);
+}
+
+/* Contenu de la boîte modale */
+.modal-content {
+    display: flex;           /* Active Flexbox */
+    flex-direction: column;  /* Empile les éléments verticalement */
+    align-items: center;     /* Centre les éléments horizontalement */
+    text-align: center;      /* Centre le texte */
+    color: white;            /* Couleur du texte */
+}
+
+/* Champ de saisie */
+#password-input {
+    background: rgba(255, 255, 255, 0); /* Fond clair semi-transparent */
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    width: 65%; /* Taille réduite de l'input */
+    color: rgba(62, 65, 59, 0.583);
+    text-shadow: 1px 1px 2px rgb(242, 255, 192);
+    text-align: center;
+    margin-bottom: 10px; /* Espacement sous le champ */
+    box-shadow: 0 0 10px #eeb819ae, 0 0 20px #4a0403bb;
+}
+
+#password-input:focus {
+    outline: none; /* Supprime le contour par défaut */
+    box-shadow: 0 0 10px rgba(255, 217, 0, 0.483); /* Ajoute un effet lumineux */
+    border: 2px solid rgba(193, 99, 10, 0.708); /* Ajoute une bordure dorée */
+}
+
+/* Bouton */
+button {
+    background: #007bff00;
+    color: rgba(62, 65, 59, 0.583);
+    text-shadow: 1px 1px 2px rgb(242, 255, 192);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Garamond Premier Pro';
+    font-weight: Medium;
+    font-size: 22px;
+}
+
+/* Effet au survol du bouton */
+button:hover {
     text-decoration: underline;
 }
 
-.password-modal button:hover, .error-modal button:hover {
-    text-shadow: rgb(184, 14, 14) 1px 0 10px;
+#error-modal {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: url('img/star.png') no-repeat center center;
+    background-size: cover;
+    z-index: 1000;
+    display: flex; /* Flexbox pour le centrage */
+    justify-content: center;
+    align-items: center;
 }
 
 /* Slider 14 images  */
@@ -169,7 +213,7 @@ transform: translateX(-2800px); /* Déplacement total : largeur de 14 images */
 /* Credits START */
 .bottom-slider-container {
 position: fixed;
-bottom: 0;
+bottom: 0px;
 left: 0;
 width: 100%;
 overflow: hidden; /* Cache tout ce qui dépasse le conteneur */
