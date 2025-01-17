@@ -245,7 +245,7 @@ height: auto; /* Maintient le ratio d'aspect */
 /* titre */
 .top-right-image {
     position: fixed; /* Positionne l'image par rapport à la fenêtre */
-    top: -5%; /* Décalage par rapport au haut */
+    top: -8%; /* Décalage par rapport au haut */
     right: 13%; /* Décalage par rapport à la droite */
     width: 25%; /* Ajustez la taille selon vos besoins */
     height: auto; /* Maintient les proportions de l'image */
