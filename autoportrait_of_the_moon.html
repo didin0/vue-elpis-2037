@@ -54,7 +54,7 @@
 
     <!-- Conteneur de la vidéo -->
     <div id="video-container">
-        <iframe src="https://player.vimeo.com/video/677805108?autoplay=1&loop=1&muted=1" 
+        <iframe src="https://player.vimeo.com/video/1048095571?h=29ba60a7a8&amp;badge=0&amp;autoplay=1&loop=1&muted=1" 
                 width="640" 
                 height="360" 
                 frameborder="0" 
@@ -144,6 +144,20 @@
             document.getElementById("error-modal").style.display = "none";
             document.getElementById("password-modal").style.display = "flex"; // Centrage restauré.
         }
+        <!-- Introduction animation -->
+        window.onload = function () {
+            const fullscreenContainer = document.getElementById('fullscreen-image-container');
+    
+            // Lancer l'animation de transparence après un délai
+            setTimeout(() => {
+                fullscreenContainer.style.opacity = '0'; // Diminuer l'opacité
+            }, 4000); // Délai avant de commencer l'animation (2 secondes)
+    
+            // Masquer le conteneur après la fin de l'animation
+            fullscreenContainer.addEventListener('transitionend', () => {
+                fullscreenContainer.style.display = 'none'; // Masquer le conteneur
+            });
+        };
     </script>
 
     <!--  

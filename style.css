@@ -27,8 +27,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: -555;
-    opacity: 0; /* Opacité initiale */
+    z-index: 10000;
+    opacity: 1; /* Opacité initiale */
     transition: opacity 3s ease;  /*Transition de l'opacité */
 }
 
@@ -68,7 +68,7 @@ body {
     top: 50%; /* Centre verticalement */
     left: 50%; /* Centre horizontalement */
     transform: translate(-50%, -50%); /* Ajuste pour centrer exactement */
-    z-index: 2; /* Met le conteneur vidéo au-dessus du GIF */
+    z-index: 1000; /* Met le conteneur vidéo au-dessus du GIF */
 }
 
 video {
@@ -249,7 +249,7 @@ height: auto; /* Maintient le ratio d'aspect */
     right: 13%; /* Décalage par rapport à la droite */
     width: 25%; /* Ajustez la taille selon vos besoins */
     height: auto; /* Maintient les proportions de l'image */
-    z-index: 1000; /* Assure que l'image est au-dessus des autres éléments */
+    z-index: 100; /* Assure que l'image est au-dessus des autres éléments */
 
     /* Application du filtre SVG */
     filter: url(#wave-effect);
