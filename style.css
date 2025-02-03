@@ -86,7 +86,7 @@ video {
     transform: translate(-50%, -50%);
     width: 500px;
     height: 500px;
-    background: url('img/étoile.png') no-repeat center center;
+    background: url('img/star.png') no-repeat center center;
     background-size: cover;
     z-index: 1000;
     display: flex; /* Flexbox pour le centrage */
@@ -361,6 +361,14 @@ width: 25%;
         width: 100%; /* Occupe toute la largeur du conteneur */
         height: 100%; /* Occupe toute la hauteur du conteneur */
         border: none; /* Supprime la bordure */
+    }
+
+    #fullscreen-image-container {
+        width: 200%;
+        position: fixed;
+        top: 50%; /* Centrage vertical */
+        left: 50%; /* Centrage horizontal */
+        transform: translate(-50%, -50%); /* Centrage parfait */
     }
 
 
