@@ -15,7 +15,10 @@
     </div>
     
     <!-- Background -->
-    <img src='img/personnage.png' id='selector'/>
+     <div class="selector-container">
+
+         <img src='img/personnage.png' id='selector'/>
+     </div>
     
     <!-- titre -->
     <img src="img/haolin2.gif" alt="titre" class="top-right-image">
@@ -36,19 +39,39 @@
         <div class="shiny-effect"></div>
     </div>
     
-    <!-- Boîte modale pour le mot de passe -->
-    <div class="custom-modal" id="password-modal" style="display: none;">
-        <div class="modal-content">
-            <p class="modal-text">Password</p>
-            <input type="password" id="password-input">
-            <button onclick="checkPassword()">Submit</button>
-        </div>
-    </div>
-
-    <!-- Boîte modale pour l'erreur -->
-    <div class="custom-modal" id="error-modal" style="display: none;">
-        <div class="modal-content">
-            <button onclick="closeErrorModal()">Try Again</button>
+    <!-- Slider -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="img/slide/1.jpg" alt="Image 1">
+                <img src="img/slide/2.jpg" alt="Image 2">
+                <img src="img/slide/3.jpg" alt="Image 3">
+                <img src="img/slide/4.jpg" alt="Image 3">
+                <img src="img/slide/5.jpg" alt="Image 3">
+                <img src="img/slide/6.jpg" alt="Image 3">
+                <img src="img/slide/7.jpg" alt="Image 3">
+                <img src="img/slide/8.jpg" alt="Image 3">
+                <img src="img/slide/9.jpg" alt="Image 3">
+                <img src="img/slide/10.jpg" alt="Image 3">
+                <img src="img/slide/11.jpg" alt="Image 3">
+                <img src="img/slide/12.jpg" alt="Image 3">
+                <img src="img/slide/13.jpg" alt="Image 3">
+                <img src="img/slide/14.jpg" alt="Image 14">
+                <!-- Doublons pour la fluidité -->
+                <img src="img/slide/1.jpg" alt="Image 1">
+                <img src="img/slide/2.jpg" alt="Image 2">
+                <img src="img/slide/3.jpg" alt="Image 3">
+                <img src="img/slide/4.jpg" alt="Image 3">
+                <img src="img/slide/5.jpg" alt="Image 3">
+                <img src="img/slide/6.jpg" alt="Image 3">
+                <img src="img/slide/7.jpg" alt="Image 3">
+                <img src="img/slide/8.jpg" alt="Image 3">
+                <img src="img/slide/9.jpg" alt="Image 3">
+                <img src="img/slide/10.jpg" alt="Image 3">
+                <img src="img/slide/11.jpg" alt="Image 3">
+                <img src="img/slide/12.jpg" alt="Image 3">
+                <img src="img/slide/13.jpg" alt="Image 3">
+                <img src="img/slide/14.jpg" alt="Image 14">
+            </div>
         </div>
     </div>
 
@@ -61,46 +84,29 @@
                 allow="fullscreen; picture-in-picture" 
                 allowfullscreen></iframe>
     </div>
-    <!-- Slider -->
-    <div class="slider-container">
-        <div class="slider">
-            <img src="img/slide/1.jpg" alt="Image 1">
-            <img src="img/slide/2.jpg" alt="Image 2">
-            <img src="img/slide/3.jpg" alt="Image 3">
-            <img src="img/slide/4.jpg" alt="Image 3">
-            <img src="img/slide/5.jpg" alt="Image 3">
-            <img src="img/slide/6.jpg" alt="Image 3">
-            <img src="img/slide/7.jpg" alt="Image 3">
-            <img src="img/slide/8.jpg" alt="Image 3">
-            <img src="img/slide/9.jpg" alt="Image 3">
-            <img src="img/slide/10.jpg" alt="Image 3">
-            <img src="img/slide/11.jpg" alt="Image 3">
-            <img src="img/slide/12.jpg" alt="Image 3">
-            <img src="img/slide/13.jpg" alt="Image 3">
-            <img src="img/slide/14.jpg" alt="Image 14">
-            <!-- Doublons pour la fluidité -->
-            <img src="img/slide/1.jpg" alt="Image 1">
-            <img src="img/slide/2.jpg" alt="Image 2">
-            <img src="img/slide/3.jpg" alt="Image 3">
-            <img src="img/slide/4.jpg" alt="Image 3">
-            <img src="img/slide/5.jpg" alt="Image 3">
-            <img src="img/slide/6.jpg" alt="Image 3">
-            <img src="img/slide/7.jpg" alt="Image 3">
-            <img src="img/slide/8.jpg" alt="Image 3">
-            <img src="img/slide/9.jpg" alt="Image 3">
-            <img src="img/slide/10.jpg" alt="Image 3">
-            <img src="img/slide/11.jpg" alt="Image 3">
-            <img src="img/slide/12.jpg" alt="Image 3">
-            <img src="img/slide/13.jpg" alt="Image 3">
-            <img src="img/slide/14.jpg" alt="Image 14">
-        </div>
-    </div>
+
 
     <!-- Image en dessous du slider -->
     <div class="bottom-slider-container">
         <div class="bottom-slider">
             <img src="img/credit.png" alt="credits">
             <img src="img/credit.png" alt="credits"> <!-- Ajout d'un doublon pour une animation fluide -->
+        </div>
+    </div>
+
+       <!-- Boîte modale pour le mot de passe -->
+       <div class="custom-modal" id="password-modal" style="display: none;">
+        <div class="modal-content">
+            <p class="modal-text">Password</p>
+            <input type="password" id="password-input">
+            <button onclick="checkPassword()">Submit</button>
+        </div>
+    </div>
+
+    <!-- Boîte modale pour l'erreur -->
+    <div class="custom-modal" id="error-modal" style="display: none;">
+        <div class="modal-content">
+            <button onclick="closeErrorModal()">Try Again</button>
         </div>
     </div>
     
@@ -144,15 +150,17 @@
             document.getElementById("error-modal").style.display = "none";
             document.getElementById("password-modal").style.display = "flex"; // Centrage restauré.
         }
-        <!-- Introduction animation -->
+    </script>
+
+    <script>
         window.onload = function () {
             const fullscreenContainer = document.getElementById('fullscreen-image-container');
-    
+
             // Lancer l'animation de transparence après un délai
             setTimeout(() => {
                 fullscreenContainer.style.opacity = '0'; // Diminuer l'opacité
             }, 4000); // Délai avant de commencer l'animation (2 secondes)
-    
+
             // Masquer le conteneur après la fin de l'animation
             fullscreenContainer.addEventListener('transitionend', () => {
                 fullscreenContainer.style.display = 'none'; // Masquer le conteneur
