@@ -28,8 +28,9 @@ body {
     justify-content: center;
     align-items: center;
     z-index: -555;
-    opacity: 0; /* Opacité initiale */
+    opacity: 1; /* Opacité initiale */
     transition: opacity 3s ease;  /*Transition de l'opacité */
+    z-index: 999999999;
 }
 
 /* Image */
