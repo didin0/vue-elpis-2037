@@ -51,10 +51,10 @@ body {
 
 .gif {
     position: absolute; /* Positionne le GIF */
-    top: 50%; /* Centre verticalement */
-    left: 75%; /* Centre horizontalement */
+    top: 47%; /* Centre verticalement */
+    left: 76%; /* Centre horizontalement */
     transform: translate(-50%, -50%); /* Ajuste pour centrer exactement */
-    z-index: 1; /* Met le GIF au-dessus de l'image de fond */
+    z-index: 11; /* Met le GIF au-dessus de l'image de fond */
     width: 25%; /* Ajuste la taille du GIF selon tes besoins */
     height: auto; /* Maintient le ratio d'aspect */
     cursor: pointer; /* Change le curseur en pointeur pour indiquer que c'est cliquable */
@@ -69,7 +69,7 @@ body {
     top: 50%; /* Centre verticalement */
     left: 50%; /* Centre horizontalement */
     transform: translate(-50%, -50%); /* Ajuste pour centrer exactement */
-    z-index: 2; /* Met le conteneur vidéo au-dessus du GIF */
+    z-index: 99999999999999; /* Met le conteneur vidéo au-dessus du GIF */
 }
 
 video {
@@ -166,7 +166,7 @@ button:hover {
     transform: translate(-50%, -50%);
     width: 500px;
     height: 500px;
-    background: url('img/étoile.png') no-repeat center center;
+    background: url('img/star.png') no-repeat center center;
     background-size: cover;
     z-index: 1000;
     display: flex; /* Flexbox pour le centrage */
@@ -246,11 +246,11 @@ height: auto; /* Maintient le ratio d'aspect */
 /* titre */
 .top-right-image {
     position: fixed; /* Positionne l'image par rapport à la fenêtre */
-    top: -5%; /* Décalage par rapport au haut */
+    top: -15%; /* Décalage par rapport au haut */
     right: 13%; /* Décalage par rapport à la droite */
     width: 25%; /* Ajustez la taille selon vos besoins */
     height: auto; /* Maintient les proportions de l'image */
-    z-index: 1000; /* Assure que l'image est au-dessus des autres éléments */
+    z-index: 10; /* Assure que l'image est au-dessus des autres éléments */
 
     /* Application du filtre SVG */
     filter: url(#wave-effect);
