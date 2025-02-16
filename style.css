@@ -86,7 +86,7 @@ video {
     transform: translate(-50%, -50%);
     width: 500px;
     height: 500px;
-    background: url('img/star.png') no-repeat center center;
+    background: url('img/étoile.png') no-repeat center center;
     background-size: cover;
     z-index: 1000;
     display: flex; /* Flexbox pour le centrage */
@@ -288,7 +288,7 @@ width: 25%;
         top: 0; /* Centrage vertical */
         left: 50%; /* Centrage horizontal */
         transform: translate(-48%); /* Centrage parfait */
-        width: 160%; /* Agrandir l'image */
+        width: 125%; /* Agrandir l'image */
         height: auto; /* Maintient les proportions */
         max-width: none; /* Supprime la limite de largeur maximale */
         object-fit: cover; /* Coupe les bords qui dépassent */
@@ -297,7 +297,7 @@ width: 25%;
     /* Ajustement pour .top-right-image */
     .top-right-image {
         position: absolute; /* Change à absolute pour mieux contrôler la position */
-        top: 67%; /* Plus haut */
+        top: 60%; /* Plus haut */
         right: 0;
         width: 90%; /* Plus petit */
         height: auto;
@@ -310,7 +310,7 @@ width: 25%;
     /* Ajustement pour .gif-container */
     .gif-container {
         position: absolute;
-        top: 125%; /* Plus haut */
+        top: 130%; /* Plus haut */
         left: 32%; /* Centrage horizontal */
         transform: translateX(-50%); /* Centrage horizontal */
         width: 100%; /* Plus grand */
@@ -326,7 +326,7 @@ width: 25%;
 
     .slider-container {
         position: absolute;
-        bottom: -70%; /* Plus haut */
+        bottom: -87%; /* Plus haut */
         left:0;
         width: 108%;
         height: auto;
@@ -334,7 +334,7 @@ width: 25%;
 
     .bottom-slider-container {
         position: absolute;
-        bottom: -75%; /* Plus haut */
+        bottom: -92%; /* Plus haut */
         left: 0;
         width: 108%; /* Plus grand */
         height: auto;
@@ -361,14 +361,6 @@ width: 25%;
         width: 100%; /* Occupe toute la largeur du conteneur */
         height: 100%; /* Occupe toute la hauteur du conteneur */
         border: none; /* Supprime la bordure */
-    }
-
-    #fullscreen-image-container {
-        width: 200%;
-        position: fixed;
-        top: 50%; /* Centrage vertical */
-        left: 50%; /* Centrage horizontal */
-        transform: translate(-50%, -50%); /* Centrage parfait */
     }
 
 
