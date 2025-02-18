@@ -86,7 +86,7 @@ video {
     transform: translate(-50%, -50%);
     width: 500px;
     height: 500px;
-    background: url('img/étoile.png') no-repeat center center;
+    background: url('img/star.png') no-repeat center center;
     background-size: cover;
     z-index: 1000;
     display: flex; /* Flexbox pour le centrage */
